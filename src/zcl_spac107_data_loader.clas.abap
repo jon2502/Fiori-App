@@ -40,18 +40,18 @@ CLASS zcl_spac107_data_loader IMPLEMENTATION.
 
     temp_table = VALUE #(
       ( warehouse_id = 1 product_id = 1 amount =   3 )
-      ( warehouse_id = 2 product_id = 4 amount =  42 )
-      ( warehouse_id = 3 product_id = 5 amount =   1 )
-      ( warehouse_id = 4 product_id = 5 amount = 321 )
-      ( warehouse_id = 5 product_id = 1 amount =  20 )
-      ( warehouse_id = 6 product_id = 5 amount =   9 )
-      ( warehouse_id = 7 product_id = 3 amount =   5 )
-      ( warehouse_id = 8 product_id = 2 amount =   4 )
-      ( warehouse_id = 9 product_id = 4 amount =   0 )
-      ( warehouse_id = 10 product_id = 3 amount =   8 )
-      ( warehouse_id = 11 product_id = 3 amount = 100 )
-      ( warehouse_id = 12 product_id = 2 amount =   7 )
-      ( warehouse_id = 13 product_id = 4 amount =   0 )
+      ( warehouse_id = 1 product_id = 4 amount =  42 )
+      ( warehouse_id = 1 product_id = 5 amount =   1 )
+      ( warehouse_id = 2 product_id = 1 amount = 321 )
+      ( warehouse_id = 2 product_id = 4 amount =  20 )
+      ( warehouse_id = 3 product_id = 5 amount =   9 )
+      ( warehouse_id = 3 product_id = 3 amount =   5 )
+      ( warehouse_id = 4 product_id = 2 amount =   4 )
+      ( warehouse_id = 5 product_id = 4 amount =   0 )
+      ( warehouse_id = 5 product_id = 3 amount =   8 )
+      ( warehouse_id = 5 product_id = 3 amount = 100 )
+      ( warehouse_id = 5 product_id = 2 amount =   7 )
+      ( warehouse_id = 5 product_id = 4 amount =   0 )
 
     ).
 

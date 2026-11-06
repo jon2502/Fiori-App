@@ -1,0 +1,22 @@
+managed implementation in class zbp_c_spac107_product unique;
+strict ( 2 );
+
+define behavior for ZC_SPAC107_PRODUCT //alias <alias_name>
+persistent table zspac107_product
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create ( authorization : global );
+  update;
+  delete;
+  field ( readonly ) productId;
+
+  mapping for zspac107_product corresponding
+  {
+    ProductId = product_id;
+    ProductName = product_name;
+    ProductDescription = product_desctiption;
+    Price = price;
+  }
+}

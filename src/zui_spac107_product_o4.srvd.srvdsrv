@@ -1,0 +1,4 @@
+@EndUserText.label: 'UI Service'
+define service ZUI_SPAC107_PRODUCT_O4 {
+  expose ZC_SPAC107_PRODUCT;
+}

@@ -9,7 +9,7 @@ CLASS zcl_spac107_data_loader DEFINITION
   PROTECTED SECTION.
   PRIVATE SECTION.
     METHODS:
-      fill_table
+      fill_stock_table
         RETURNING VALUE(r_output) TYPE string
         RAISING cx_sy_open_sql_db,
       cleanup
@@ -25,7 +25,7 @@ CLASS zcl_spac107_data_loader IMPLEMENTATION.
     out->write( cleanup(  ) ).
 
     TRY.
-      out->write( fill_table(  ) ).
+      out->write( fill_stock_table(  ) ).
     CATCH cx_sy_open_sql_db INTO DATA(lx).
       out->write( |Couldn't write entries to table. Error: { lx->get_longtext(  ) }| ).
     ENDTRY.
@@ -33,7 +33,7 @@ CLASS zcl_spac107_data_loader IMPLEMENTATION.
   ENDMETHOD.
 
 
-  METHOD fill_table.
+  METHOD fill_stock_table.
 
     DATA: temp_table TYPE TABLE OF  zspac107_stock .
 
@@ -42,16 +42,16 @@ CLASS zcl_spac107_data_loader IMPLEMENTATION.
       ( warehouse_id = 1 product_id = 1 amount =   3 )
       ( warehouse_id = 1 product_id = 4 amount =  42 )
       ( warehouse_id = 1 product_id = 5 amount =   1 )
-      ( warehouse_id = 2 product_id = 1 amount = 321 )
+      ( warehouse_id = 1 product_id = 2 amount = 321 )
       ( warehouse_id = 2 product_id = 4 amount =  20 )
-      ( warehouse_id = 3 product_id = 5 amount =   9 )
-      ( warehouse_id = 3 product_id = 3 amount =   5 )
-      ( warehouse_id = 4 product_id = 2 amount =   4 )
-      ( warehouse_id = 5 product_id = 4 amount =   0 )
-      ( warehouse_id = 5 product_id = 3 amount =   8 )
-      ( warehouse_id = 5 product_id = 3 amount = 100 )
-      ( warehouse_id = 5 product_id = 2 amount =   7 )
-      ( warehouse_id = 5 product_id = 4 amount =   0 )
+      ( warehouse_id = 2 product_id = 5 amount =   9 )
+      ( warehouse_id = 2 product_id = 3 amount =   5 )
+      ( warehouse_id = 2 product_id = 2 amount =   4 )
+      ( warehouse_id = 3 product_id = 4 amount =   0 )
+      ( warehouse_id = 3 product_id = 1 amount =   8 )
+      ( warehouse_id = 3 product_id = 3 amount = 100 )
+      ( warehouse_id = 3 product_id = 2 amount =   7 )
+      ( warehouse_id = 3 product_id = 4 amount =   0 )
 
     ).
 
@@ -63,7 +63,6 @@ CLASS zcl_spac107_data_loader IMPLEMENTATION.
     ENDTRY.
 
     r_output = |Inserted { sy-dbcnt } entries into table.|.
-
   ENDMETHOD.
 
   METHOD cleanup.
@@ -76,6 +75,5 @@ CLASS zcl_spac107_data_loader IMPLEMENTATION.
       COMMIT WORK.
       r_output = |Successfully cleaned up { sy-dbcnt } entries.|.
     ENDIF.
-
   ENDMETHOD.
 ENDCLASS.

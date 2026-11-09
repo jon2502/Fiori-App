@@ -1,15 +1,5 @@
-class ZBP_C_SPAC107_PRODUCT definition
-  public
-  abstract
-  final
-  create public .
-
-public section.
-protected section.
-private section.
+CLASS zbp_c_spac107_product DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zc_spac107_product.
 ENDCLASS.
 
-
-
-CLASS ZBP_C_SPAC107_PRODUCT IMPLEMENTATION.
+CLASS zbp_c_spac107_product IMPLEMENTATION.
 ENDCLASS.

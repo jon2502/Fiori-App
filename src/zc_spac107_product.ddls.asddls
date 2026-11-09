@@ -1,7 +1,8 @@
-
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'data definition for product'
 @Metadata.ignorePropagatedAnnotations: true
+@Metadata.allowExtensions: true
+
 define root view entity ZC_SPAC107_PRODUCT as select from zspac107_product
 {
 

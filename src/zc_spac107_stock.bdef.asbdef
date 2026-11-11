@@ -1,15 +1,9 @@
-managed implementation in class zbp_c_spac107_stock unique;
+projection;
 strict ( 2 );
 
 define behavior for ZC_SPAC107_STOCK //alias <alias_name>
-persistent table ZSPAC107_STOCK
-lock master
-authorization master ( instance )
-//etag master <field_name>
 {
-  create ( authorization : global );
-  update;
-  delete;
-  field ( readonly ) warehouse_id, product_id;
-
+  use create;
+  use update;
+  use delete;
 }

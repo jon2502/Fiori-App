@@ -35,7 +35,9 @@ CLASS zcl_spac107_product_loader IMPLEMENTATION.
 
   METHOD fill_product_table.
 
-    DATA: temp_table TYPE TABLE OF  zspac107_product .
+    DATA: temp_table TYPE TABLE OF  zspac107_product,
+          result_table TYPE TABLE OF zspac107_product.
+    .
     temp_table = VALUE #(
       ( product_id = 1 product_name = 'Intercessor Squad' product_desctiption = 'Intercessors are tough, flexible, highly skilled, and capable of laying down withering hails of fire. Bolt rifles booming' price = 410 )
       ( product_id = 2 product_name = 'Assault Intercessors with Jump Packs'  product_desctiption = 'Assault Intercessors with Jump Packs soar over the battlefield, slamming into the foe like a hammer from the skies.' price = 390 )
@@ -48,7 +50,6 @@ CLASS zcl_spac107_product_loader IMPLEMENTATION.
 
     TRY.
       INSERT  zspac107_product  FROM TABLE @( CORRESPONDING #( temp_table ) ).
-
     CATCH cx_sy_open_sql_db INTO DATA(lx).
       RAISE EXCEPTION lx.
     ENDTRY.

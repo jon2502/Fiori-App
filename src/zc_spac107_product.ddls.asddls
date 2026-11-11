@@ -1,14 +1,11 @@
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'data definition for product'
+@EndUserText.label: 'projection view'
 @Metadata.ignorePropagatedAnnotations: true
 @Metadata.allowExtensions: true
-
-define root view entity ZC_SPAC107_PRODUCT as select from zspac107_product
+define root view entity ZC_SPAC107_PRODUCT as projection on ZR_SPAC107_PRODUCT
 {
-
-  key product_id as productId,
-  product_name  as ProductName,
-  product_desctiption as ProductDescription,
-  price as Price
-   
+    key ProductId,
+    ProductName,
+    ProductDesctiption,
+    Price
 }

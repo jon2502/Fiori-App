@@ -2,15 +2,17 @@
 @EndUserText.label: 'projection view'
 @Metadata.ignorePropagatedAnnotations: true
 @Metadata.allowExtensions: true
-define root view entity ZC_SPAC107_PRODUCT as projection on ZR_SPAC107_PRODUCT
+define root view entity ZC_SPAC107_PRODUCT
+  provider contract transactional_query as projection on ZR_SPAC107_PRODUCT
 {
-    key ProductId,
-    ProductName,
-    ProductDesctiption,
-    Price,
-    CreatedBy,
-    CreatedAt,
-    LastChangedBy,
-    LastChangedAt,
-    LocalLastChangedAt
+  key ProductId,
+
+  ProductName,
+  ProductDesctiption,
+  Price,
+  CreatedBy,
+  CreatedAt,
+  LastChangedBy,
+  LastChangedAt,
+  LocalLastChangedAt
 }

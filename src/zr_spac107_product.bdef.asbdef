@@ -5,19 +5,32 @@ with draft;
 define behavior for ZR_SPAC107_PRODUCT //alias <alias_name>
 persistent table zspac107_product
 draft table zspac107_d_proc
-lock master
-total etag LastChangedAt
+lock master total etag LastChangedAt
 authorization master ( instance )
 etag master LastChangedAt
 {
-  create ( authorization : global );
+  create;
   update;
   delete;
   field ( readonly ) ProductId;
 
-  draft action Edit;
-  draft action Activate;
+  field ( mandatory ) ProductName;
+
+  draft action Activate optimized;
   draft action Discard;
+  draft action Edit;
   draft action Resume;
   draft determine action Prepare;
+
+  mapping for zspac107_product corresponding{
+    ProductId = product_id;
+    ProductName = product_name;
+    ProductDesctiption = product_desctiption;
+    Price = price;
+    CreatedBy = local_created_by;
+    CreatedAt = local_created_at;
+    LastChangedBy = local_last_changed_by;
+    LastChangedAt = last_changed_at;
+    LocalLastChangedAt = local_last_changed_at;
+  }
 }

@@ -9,8 +9,10 @@
   }
 }
 
+
 annotate entity ZC_SPAC107_PRODUCT with
 {
+
   @UI.facet: [
     {
       id: 'Product',

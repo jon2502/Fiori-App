@@ -7,5 +7,10 @@ define root view entity ZC_SPAC107_PRODUCT as projection on ZR_SPAC107_PRODUCT
     key ProductId,
     ProductName,
     ProductDesctiption,
-    Price
+    Price,
+    CreatedBy,
+    CreatedAt,
+    LastChangedBy,
+    LastChangedAt,
+    LocalLastChangedAt
 }

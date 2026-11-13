@@ -1,20 +1,33 @@
 managed implementation in class ZBP_R_SPAC107_STOCK unique;
 strict ( 2 );
+with draft;
 
 define behavior for ZR_SPAC107_STOCK //alias <alias_name>
 persistent table ZSPAC107_STOCK
-lock master
+draft table ZSPAC107_STOCK_D
+lock master total etag LastChangedAt
 authorization master ( instance )
-//etag master <field_name>
+etag master LastChangedAt
 {
-  create ( authorization : global );
+  create;
   update;
   delete;
-  field ( readonly ) WarehouseId;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
 
   mapping for ZSPAC107_STOCK corresponding
   {
     WarehouseId = warehouse_id;
     ProductId = product_id;
+    CreatedBy = local_created_by;
+    CreatedAt = local_created_at;
+    LastChangedBy = local_last_changed_by;
+    LastChangedAt = last_changed_at;
+    LocalLastChangedAt = local_last_changed_at;
   }
 }

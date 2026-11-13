@@ -1,0 +1,36 @@
+managed implementation in class zbp_r_spac107_loc unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZR_SPAC107_LOC //alias <alias_name>
+persistent table zspac107_loc
+draft table ZSPAC107_LOC_D
+lock master total etag LastChangedAt
+authorization master ( instance )
+early numbering
+etag master LastChangedAt
+
+{
+  create;
+  update;
+  delete;
+
+  field ( readonly ) WarehouseId;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+   mapping for zspac107_loc {
+    WarehouseId = warehouse_id;
+    Address = address;
+    PostCode =  post_code;
+    CreatedBy = local_created_by;
+    CreatedAt = local_created_at;
+    LastChangedBy = local_last_changed_by;
+    LastChangedAt = last_changed_at;
+    LocalLastChangedAt = local_last_changed_at;
+  }
+}

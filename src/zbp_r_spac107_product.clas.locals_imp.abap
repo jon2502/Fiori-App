@@ -15,7 +15,19 @@ CLASS lhc_ZR_SPAC107_PRODUCT IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD earlynumbering_create.
-  ENDMETHOD.
+    DATA max_id TYPE  int4.
+    SELECT MAX( product_id ) FROM zspac107_product INTO @max_id.
 
+    LOOP AT entities INTO DATA(entity).
+
+        max_id += 1.
+
+        APPEND VALUE #(
+            %cid      = entity-%cid
+            %is_draft = entity-%is_draft
+            ProductId   = max_id
+          ) TO mapped-zr_spac107_product.
+   ENDLOOP.
+  ENDMETHOD.
 
 ENDCLASS.
